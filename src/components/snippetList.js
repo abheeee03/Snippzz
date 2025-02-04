@@ -8,12 +8,12 @@ const SnippetList = async ({postList}) => {
     <div className='flex flex-col gap-3 p-4 mt-5 items-center justify-center'>
         {
             postList.map((snippet, id)=>(
-                <div key={id} className='flex justify-between items-center w-full bg-gray-200 p-3'>
+                <Link key={id} href={`/snippet/${snippet.id}`} className='flex justify-between items-center w-full hover:scale-[1.01] transition-all bg-gray-200 p-3'>
                 <h1 className='text-xl'>
                 {snippet.title}
                 </h1>
-                <Link href={`/snippet/${snippet.id}`} className='underline text-md'>View More</Link>
-                </div>
+                <h4 className='underline text-md'>View Code</h4>
+                </Link>
             ))
         }
         
