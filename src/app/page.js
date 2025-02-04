@@ -1,9 +1,10 @@
 import SnippetList from "@/components/snippetList";
+import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
 
-  
+  const snippets = await prisma.snippet.findMany();
 
 
 
@@ -15,7 +16,7 @@ export default function Home() {
       <button className="bg-black px-3 py-2 text-white rounded-lg hover:scale-105 transition-all">New Snippet</button>
       </Link>
       </div>
-      <SnippetList/>
+      <SnippetList postList={snippets}/>
     </div>
   );
 }
